@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var addStrings = function (num1, num2) {
+            if(num1===""||num1==="0") return num2;
+            if(num2===""||num2==="0") return num1;
+            let carry = 0;  //进位变量
+            let i = 1;  
+            let targetStr = ""; //和字符串
+            while (num1[num1.length - i] || num2[num2.length - i]) { //从后往前遍历，都不存在时结束循环
+                let p,q;//p,q代表每次循环相应字符代表的数，如果不存在置为0；
+                if(num1[num1.length-i])  p = num1[num1.length-i] -0;
+                else  p = 0;
+                if(num2[num2.length-i])  q = num2[num2.length-i] -0;
+                else q = 0;
+                targetStr = ((p + q + carry) % 10)+targetStr;
+                carry = parseInt((p + q + carry) / 10);
+                i++;
+            }
+           if(carry) targetStr = carry+targetStr;  //循环结束后，如果进位不为0，在前面拼接上。
+           return targetStr;
+        };
+        addStrings("10000", "26767000");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+        var canConstruct = function (ransomNote, magazine) {
+            if(ransomNote.length===0) return true;
+            if(magazine.length===0) return false;
+            let Robj = {};
+            let Mobj = {};
+            for(let i of ransomNote){
+                if(Robj[i]) Robj[i]++;
+                else Robj[i]=1;
+            }
+            for(let i of magazine){
+                if(Mobj[i]) Mobj[i]++;
+                else Mobj[i] = 1;
+            }
+            for(let i in Robj){
+                if(!Mobj[i]) return false;
+                if(Mobj[i]-Robj[i]<0) return false;
+            }
+            return true;
+        };
+        canConstruct("aa","ab");
+    </script>
+</body>
+
+</html>

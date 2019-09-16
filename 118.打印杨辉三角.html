@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+        var generate = function (numRows) {
+            let erArr = [[1],[1,1]];
+            if(numRows==0) return [];
+            if(numRows==1) return [[1]];
+            if(numRows==2) return erArr;
+            if(numRows>=3){
+            for(let i=2;i<numRows;i++){
+                let arr = [];
+                for(let j=0;j<=i;j++){
+                  if(j==0){  
+                   arr.push(1);
+                   continue;
+                  }
+                  if(j==i){  
+                  arr.push(1);
+                  break;
+                  }
+                  arr[j]=erArr[i-1][j-1]+erArr[i-1][j];
+                }
+                erArr.push(arr);
+            }
+          }
+          return erArr;
+        };
+        console.log(generate(5));
+    </script>
+</body>
+
+</html>

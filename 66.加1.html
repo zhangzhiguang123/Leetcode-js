@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var plusOne = function (digits) {
+        let t = digits.length-1;
+           while(digits[t]+1===10){
+               digits[t] = 0;
+               t--;
+           }
+           digits[t] = digits[t]+1;
+           if(digits[0]===0){
+                digits = [1].concat(digits);   
+           }
+           return digits;
+        };
+    </script>
+</body>
+
+</html>

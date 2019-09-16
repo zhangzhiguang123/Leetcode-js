@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var containsDuplicate = function(nums) {
+            function sortN(a,b){
+                return a - b;
+            }
+            let newNums = nums.sort(sortN);
+            for(let i =0;i<nums.length-1;i++){
+                if(newNums[i]==newNums[i+1]){
+                    return true;
+                }
+            }
+            return false;
+       }; 
+       alcontainsDuplicate([1,2,3,4,45]);
+    </script>
+</body>
+</html>

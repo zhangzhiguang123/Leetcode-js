@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var countAndSay = function (n) {
+            function times(str) {
+                newStr = "";
+                let n = 1;
+                for (let j = 0; j < str.length; j++) {
+                    if (str.charAt(j) == str.charAt(j + 1)) {
+                        n++;
+                    } else {
+                        newStr += n;
+                        newStr += str.charAt(j);
+                        n=1;
+                    }
+                }
+                return newStr;
+            }
+            let s = "1";
+            if (n == 1) {
+                return s;
+            }
+            for(let g=1;g<n;g++){
+               s = times(s);
+            }
+            return s;
+        };
+        alert(countAndSay(6));
+    </script>
+</body>
+
+</html>

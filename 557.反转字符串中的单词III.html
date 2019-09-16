@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reverseWords = function (s) {
+            function reverse(str) {    //功能函数，反转字符串。
+                let newStr = "";
+                for (let i of str) {
+                    newStr = i + newStr;
+                }
+                return newStr;
+            }
+            let sArr = s.split(" ");
+            sArr = sArr.map(i=>reverse(i));   //反转每个字符串保存在sArr中;
+            return sArr.join(" ");
+        };
+    </script>
+</body>
+
+</html>

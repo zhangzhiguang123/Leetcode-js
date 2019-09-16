@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+  * @param {string} s
+  * @return {string}
+  */
+        var reverseVowels = function (s) {
+            let sArr = [];
+            let targetStr = "";
+            for(let i of s){
+              if(i==="a"||i==="A"||i==="i"||i==="I"||i==="o"||i==="O"||i==="u"||i==="U"||i==="e"||i==="E") sArr.push(i);
+            }
+            sArr.reverse();
+            let j = 0;
+            for(let i of s){
+                if(i==="a"||i==="A"||i==="i"||i==="I"||i==="o"||i==="O"||i==="u"||i==="U"||i==="e"||i==="E") targetStr+=sArr[j++];
+                else targetStr+=i;
+            }
+            return targetStr;
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var longestPalindrome = function(s) {
+       let strObj = {};
+       let length = 0;
+       for(let i of s){
+           if(strObj[i]) strObj[i]++;
+           else strObj[i]=1;
+       }
+       for(let i in strObj){
+           if(strObj[i]>1) length+=strObj[i]-(strObj[i]%2);
+       }
+       if(length===s.length) return length;
+       return length+1;
+    };
+    alert(longestPalindrome("abccccdd"));
+    </script>
+</body>
+</html>

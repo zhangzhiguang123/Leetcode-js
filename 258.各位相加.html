@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var addDigits = function(num) {
+        function add(num){ 
+         let n = 0;
+         let str = num.toString();
+         for(var k of str){
+            n += parseInt(k);
+          }
+          return n;
+       } 
+       while(true){
+           num = add(num);
+           if(num<10&&num>0)  return num;
+       }
+    }
+    alert(addDigits(52));
+    </script>
+</body>
+</html>

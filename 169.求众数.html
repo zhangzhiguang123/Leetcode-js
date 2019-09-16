@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var majorityElement = function(nums) {
+           let setI = new Set();
+           let max = 1;
+           let target = nums[0];
+           nums.map((i)=>{setI.add(i)});
+           for(let i of setI){
+               let count = 1;
+               nums.map((j)=>{
+                   if(i===j) count++;
+               })
+              if(count>max){
+                  max = count;
+                  target = i;
+              }
+           }
+           return target;
+     };
+     alert(majorityElement([1]))
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var findAnagrams = function(s, p) {
+         let result = [];//用来保存最终获得的索引。
+         let pStr = p.split("").sort().join("");//将字符串p按照默认规则排序。
+         let flag = 0;
+        for(let i=0;i<s.length-p.length+1;i++){
+            if(p.indexOf(s[i])===-1) continue;  //增加效率，str[i]不在p中出现过直接结束本次循环.
+            let targetArr = [];  //保存从s中从i开始，与p等长的字符。
+            for(let j=0;j<p.length;j++){
+                if(p.indexOf(s[i+j])===-1){
+                 i=i+j;
+                 flag = 1;
+                 break;
+                }
+                targetArr.push(s[i+j]);
+            }
+            if(flag===1){
+                flag = 0;
+                continue;
+            }
+            let targetStr=targetArr.sort().join(""); //按默认规则排序，并转成字符串。
+            if(targetStr===pStr) result.push(i); //如果目标字符串与pStr相等，则证明其为p的异位字符串，保存开始下标I;
+        }
+        return result;
+   };
+   console.log(findAnagrams("poiujytrewq","poiuj"));
+    </script>
+</body>
+</html>

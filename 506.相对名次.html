@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var findRelativeRanks = function(nums) {
+             let myMap = new Map();
+             let arr1 =  nums.map(i=>i); 
+              function n(a,b){
+                  return b-a;
+              }
+              nums.sort(n);
+              for(let i=0;i<nums.length;i++){
+                  if(i===0) myMap.set(nums[i],"Gold Medal");
+                  if(i===1) myMap.set(nums[i],"Silver Medal");
+                  if(i===2) myMap.set(nums[i],"Bronze Medal");
+                  if(i>2)   myMap.set(nums[i],i+1+"");
+              }
+              arr1 = arr1.map(i=>myMap.get(i)); 
+              return arr1;
+        };
+     console.log(findRelativeRanks([1,2,3,4,5,6,7]));
+    </script>
+</body>
+</html>

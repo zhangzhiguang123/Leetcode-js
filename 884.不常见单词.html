@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var uncommonFromSentences = function (A, B) {
+            let C = A + " " + B;
+            let CArr = C.split(" "); 
+            let Cobj = {};
+            let Arr = [];
+            for(let p in CArr){
+                if(Cobj[CArr[p]]) Cobj[CArr[p]]++;
+                else Cobj[CArr[p]]=1;
+            }
+            for(let p in Cobj){
+                if(Cobj[p]===1) Arr.push(p);
+            }
+            return Arr;
+        };
+        console.log(uncommonFromSentences("a b c d","a b c e"));
+    </script>
+</body>
+
+</html>

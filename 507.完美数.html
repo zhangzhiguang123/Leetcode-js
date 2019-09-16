@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var checkPerfectNumber = function(num) {
+            if (num==0) return true;
+            let n = 0;
+            for(let i=1;i<num;i++){
+                if(num%i===0) n+=i;
+            }
+            if(num===n) return true;
+            return false;
+       };
+    </script>
+</body>
+</html>

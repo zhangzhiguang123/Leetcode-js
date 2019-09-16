@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var titleToNumber = function(s) {
+        let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let Arr = s.split("");
+        let num=0;
+        Arr.map((i,index)=>{
+            num+=(str.indexOf(i)+1)*Math.pow(26,(Arr.length-index-1));
+        })
+        return num;
+  };
+    </script>
+</body>
+</html>

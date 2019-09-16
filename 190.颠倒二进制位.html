@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   var reverseBits = function(n) {
+       let arr = n.toString(2).split("");
+       let k = arr.length;
+       for(let i = 0;i<32-k;i++){
+           arr.unshift(0);
+       }
+       let num = 0;
+       for(let i=0;i<arr.length+1;i++){
+           if(arr[i]==="1"){
+            num+=Math.pow(2,i);
+           }
+       }
+      return num;
+    };
+    </script>
+</body>
+</html>

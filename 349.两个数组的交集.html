@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var intersection = function (nums1, nums2) {
+            let nums1Set = new Set(nums1);
+            let newSet = new Set();
+             nums2.map((i) => {
+                if (nums1Set.has(i)) newSet.add(i);
+            });
+            return [...newSet];
+        };
+        console.log(intersection([8,0,3], [0,0]));
+    </script>
+</body>
+
+</html>

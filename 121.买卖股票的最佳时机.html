@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {number[]} prices
+ * @return {number}
+ */
+        var maxProfit = function (prices) {
+             let Min = prices[0];
+             let maxMenu = 0;
+             for(let i = 0;i<prices.length;i++){
+                 if(prices[i]<Min){
+                     Min = prices[i]
+                     continue;
+                 }
+                 maxMenu = Math.max(prices[i]-Min,maxMenu);
+             } 
+             return maxMenu;
+        };
+        alert(maxProfit([7,1,5,3,6,4]));
+    </script>
+</body>
+
+</html>

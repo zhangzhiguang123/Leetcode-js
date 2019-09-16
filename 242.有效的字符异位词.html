@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var isAnagram = function (s, t) {
+            if (s.length !== t.length) return false;
+            let sObj = {},tObj = {};
+            for(let i of s){
+                if(sObj[i]) sObj[i]++;
+                else sObj[i]=1;
+            }
+            for(let i of t){
+                if(tObj[i]) tObj[i]++;
+                else tObj[i]=1;
+            }
+            for(let i in sObj){
+                if(sObj[i]!==tObj[i]) return false;
+            }
+            return true;
+        };
+        alert(isAnagram("llollasdfghjkl", "lkjhgfdsallllo"));
+    </script>
+</body>
+
+</html>

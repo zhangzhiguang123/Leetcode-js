@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var repeatedSubstringPattern = function(s) {
+            let target;
+            if(s.length===1) return false;
+            for(let i=0;i<s.length/2;i++){
+               target = s.slice(0,i+1);
+               let R = new RegExp(target,"g");
+               if(s.substr(i+1).indexOf(target)===-1) return false;
+               if(s.replace(R,"")==="") return true; 
+            }
+            return false;
+    };
+    console.log(repeatedSubstringPattern("abab"));
+    </script>
+</body>
+</html>

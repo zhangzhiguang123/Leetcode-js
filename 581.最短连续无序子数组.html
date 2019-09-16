@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var findUnsortedSubarray = function(nums) {
+            let targetArr = [];
+            let index = [];
+            let newArr = nums.map(i=>i);
+            nums.sort(function(a,b){return a-b;});
+            for(let i=0;i<nums.length;i++){
+                if(newArr[i]===nums[i]) continue;
+                targetArr.push(i);
+            }
+            if(targetArr.length===0) return 0;
+            return targetArr[targetArr.length-1]-targetArr[0]+1;
+      };
+      console.log(findUnsortedSubarray([2,6,4,8,10,9,15]));
+    </script>
+</body>
+</html>

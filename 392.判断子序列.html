@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var isSubsequence = function(s, t) {
+         if(s==="") return true;
+         for(let i of s){
+             if(t.indexOf(i)===-1) return false;   //一直判断剩余字符串是否存在i;
+             t = t.substr(t.indexOf(i)+1);   
+         }
+         return true;
+   };
+    </script>
+</body>
+</html>

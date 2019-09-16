@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var hammingDistance = function(x, y) {
+     let one = x.toString(2);    //将x,y转成二进制字符串并分别赋给变量one,two;
+     let two = y.toString(2);
+     let num = 0,length = Math.min(one.length,two.length);  //length为字符串的最小长度
+     for(let i= 0;i<length;i++){
+        if(one.charAt(one.length-i-1) ^ two.charAt(two.length-i-1)) num++; //从两字符串末尾依次往前比较相同位计数
+     }
+     let three = one.length>two.length?one:two; //将最长字符串赋给three
+     for(let i=0;i<Math.abs(one.length-two.length);i++){
+         if(three.charAt(i)==="1") num++;     //从最长字符串首位遍历，如果有1,num++；遍历one.length-two.length次
+     }
+     return num;
+};
+ alert(hammingDistance(1,1));
+    </script>
+</body>
+</html>

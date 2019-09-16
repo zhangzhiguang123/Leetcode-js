@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const addBinary = (a, b) => {
+            let str = '';
+            let i = a.length - 1, j = b.length - 1;
+            let dight = 0, cary = 0, sum = 0;
+            while (i >= 0 || j >= 0) {
+                sum = ~~a[i] + ~~b[j] + cary;
+                dight = sum % 2;
+                cary = (sum - dight) / 2;
+                str = dight + str;
+                i--;
+                j--;
+            }
+            return cary ? cary + str : str;
+        }
+        alert(addBinary("10", "100010"));
+    </script>
+</body>
+
+</html>

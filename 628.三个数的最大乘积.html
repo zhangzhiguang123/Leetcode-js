@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var maximumProduct = function(nums) {
+        nums.sort(function(a,b){return b-a;});
+        let one = nums[0]*nums[1]*nums[2];
+        let two = nums[0]*nums[1]*nums[nums.length-1];
+        let three = nums[0]*nums[nums.length-1]*nums[nums.length-2];
+        let four = nums[nums.length-3]*nums[nums.length-2]*nums[nums.length-1];
+        return Math.max(one,two,three,four);
+     };
+    </script>
+</body>
+</html>

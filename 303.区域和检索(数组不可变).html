@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+ * @param {number[]} nums
+ */
+var NumArray = function(nums) {
+    this.Arr = nums;
+};
+
+/** 
+ * @param {number} i 
+ * @param {number} j
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function(i, j) {
+    let num = 0;
+    for(let t=i;t<=j;t++){
+         num += this.Arr[t];
+    }
+    return num;
+};
+
+/** 
+ * Your NumArray object will be instantiated and called as such:
+ * var obj = new NumArray(nums)
+ * var param_1 = obj.sumRange(i,j)
+ */
+    </script>
+</body>
+</html>

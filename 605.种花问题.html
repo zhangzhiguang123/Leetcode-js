@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var canPlaceFlowers = function(flowerbed, n) {
+        let str = "0"+flowerbed.join("")+"0";
+        str = str.replace(/000/g,"*");
+        let i=0;
+        for(let t=0;t<str.length;t++){
+            if(str[t]==="*") i++;
+        }
+        if(n>i) return false;
+        else return true;
+      };
+    </script>
+</body>
+</html>

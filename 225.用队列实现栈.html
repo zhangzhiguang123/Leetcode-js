@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * Initialize your data structure here.
+ */
+        var MyStack = function () {
+            this.Arr = [];
+        };
+        MyStack.prototype.push = function (x) {
+             this.Arr.push(x);
+        };
+        MyStack.prototype.pop = function () {
+            return this.Arr.pop();
+        };
+        MyStack.prototype.top = function () {
+            return this.Arr[Arr.length-1];
+        };
+        MyStack.prototype.empty = function () {
+             if(this.Arr.length==0) return true;
+             else return false;
+        };    
+         var obj = new MyStack()
+         obj.push(10)
+         var param_2 = obj.pop()
+         var param_3 = obj.top()
+         var param_4 = obj.empty()
+         console.log(param_2,param_3,param_4);
+    </script>
+</body>
+
+</html>

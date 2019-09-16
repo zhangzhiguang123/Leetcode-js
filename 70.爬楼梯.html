@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var climbStairs = function (n) {
+            function bigNumAdd(num1, num2) {
+                let arrNum1 = num1.split("").reverse();
+                let arrNum2 = num2.split("").reverse();
+                let arrNum = [];
+                let mflag = 0;
+                for (let i = 0; i < arrNum1.length; i++) {
+                    arrNum1[i] = parseInt(arrNum1[i]);
+                    arrNum2[i] = parseInt(arrNum2[i]);
+                    let num = arrNum1[i] + arrNum2[i] + mflag;
+                    if (num >= 10) mflag = 1;
+                    else mflag = 0;
+                    arrNum.push(num % 10);
+                }
+                if (arrNum1.length == arrNum2.length && mflag) arrNum.push(1);
+                else {
+                    for (let j = arrNum1.length; j < arrNum2.length; j++) {
+                        arrNum2[j] = parseInt(arrNum2[j]);
+                        let num = arrNum2[j] + mflag;
+                        if (num >= 10) mflag = 1;
+                        else mflag = 0;
+                        arrNum.push(num % 10);
+                    }
+                    if (mflag) arrNum.push(1);
+                }
+                return arrNum.reverse().join("");
+            }
+            let sss = [];
+            sss[0] = "1";
+            sss[1] = "2";
+            if (n === 1) return 1;
+            if (n === 2) return 2;
+            for (let i = 2; i < n; i++) {
+                sss[i] = bigNumAdd(sss[i - 2], sss[i - 1]);
+            }
+            return sss[sss.length - 1];
+        };
+        climbStairs(7);
+    </script>
+</body>
+
+</html>

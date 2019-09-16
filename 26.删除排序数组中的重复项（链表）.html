@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+* @param {number[]} nums
+* @return {number}
+*/
+        var removeDuplicates = function (nums) {
+            function sortNumber(a, b)  //让sort方法以数值大小排序
+            {
+                return a - b;
+            }
+            let arrNum = nums.sort(sortNumber);
+            function ListNode(val) {
+                this.val = val;
+                this.next = null;
+            }
+            let oList = new ListNode("head");
+            let ll = oList;
+            let sIndex = 0;
+            let sss = [];
+            for (let i = 0; i < arrNum.length; i++) {
+                ll.next= new ListNode(arrNum[i]);
+                ll = ll.next;
+            }
+            ll.next = new ListNode(null);
+            ll = oList.next;
+            while (ll.next) {
+                nums[sIndex++] = ll.val;
+                while(ll.val == ll.next.val){
+                    ll= ll.next; 
+                } 
+                ll = ll.next;
+            }
+            for(let i=0;i<sIndex;i++){
+                sss[i] = nums[i];
+            }
+            return sss.length;
+        };
+
+        alert(removeDuplicates([0,0,0,0,0]));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+ * @param {number} num
+ * @return {boolean}
+ */
+var isPerfectSquare = function(num) {
+    if(num==0) return true;
+    let left = 1;
+    let right= num;
+    while(right - left>1){
+        let fff = Math.floor(right/2+left/2);
+        if(num/fff>fff) left = fff;
+        else right = fff;
+        if(num/fff===fff) break;
+    }
+    if(num%right===0&&num/right===right) return true;
+    return false;
+};
+alert(isPerfectSquare(42));
+    </script>
+</body>
+</html>

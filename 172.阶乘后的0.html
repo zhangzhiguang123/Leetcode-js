@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     var trailingZeroes = function(n) {
+    //         let times = 0;   
+    //         function fiveTimes(a){   
+    //              while(a%5===0){
+    //                  times++;
+    //                  a = parseInt(a/5);
+    //              }
+    //         }
+    //         for(let i=5;i<=n;i+=5){
+    //             fiveTimes(i);
+    //         }
+    //         return times;
+    //    };
+       var trailingZeroes = function(n) {
+            let times = 0;
+            let obj={}; 
+            let i = 5; 
+            function fiveTimes(a){
+                let time = 0   
+                 while(a%5===0){
+                     time++;
+                     a = parseInt(a/5);
+                     if(obj[a]){
+                         time += obj[a]; 
+                         delete obj[i];
+                         i+=5;
+                         return time;          
+                     }
+                 }
+                 return time;
+            }
+            for(let i=5;i<=n;i+=5){
+               obj[i] = fiveTimes(i);
+               times+=obj[i];
+            }
+            return times;
+       };
+    </script>
+</body>
+</html>

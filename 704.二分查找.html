@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var search = function (nums, target) {
+            let left = 0, right = nums.length - 1;
+            while(right-left>1){
+                let middle = Math.floor(right/2+left/2);
+                if(nums[middle]>target) right=middle;
+                else left = middle;
+            }
+            if(nums[left]===target) return left;
+            if(nums[right]===target) return right;
+            return -1;
+        };
+    </script>
+</body>
+
+</html>

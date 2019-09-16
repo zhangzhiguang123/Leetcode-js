@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {string} pattern
+ * @param {string} str
+ * @return {boolean}
+ */
+        var wordPattern = function (pattern, str) {
+            let patternMap = new Map();
+            let strArr = str.split(" ");
+            if (strArr.length !== pattern.length) return false; //如果字符串长度和此数组长度不相等，那么一定不同构，直接返回。
+            let strMap = new Map();      //新建Map 
+            for (let i = 0; i < pattern.length; i++) {
+                if (patternMap.has(pattern[i])) {
+                    let ss = patternMap.get(pattern[i]) + "" + i;
+                    patternMap.set(pattern[i], ss);//将键出现的索引拼接在一起，并更新键值。
+                } else {
+                    patternMap.set(pattern[i], i + "");//如果键未出现过，将其添加到字典中，索引为初值
+                }
+                if (strMap.has(strArr[i])) {
+                    let tt = strMap.get(strArr[i]) + "" + i;
+                    strMap.set(strArr[i], tt);    //将键出现的索引拼接在一起，并更新键值。
+                } else {
+                    strMap.set(strArr[i], i + "");//如果键未出现过，将其添加到字典中，索引为初值
+                }
+            }
+            if (strMap.size !== patternMap.size) return false;  //如果两字典长度不相等，那么一定不同构，直接返回
+            let Arr1 = [...patternMap];
+            let Arr2 = [...strMap];
+            for (let i = 0; i < Arr1.length; i++) {  //根据添加顺序依次比较键值，出现不相等返回flase;
+                if (Arr1[i][1] != Arr2[i][1]) return false;
+            }
+            return true;   // 都相等返回true;
+        };
+        alert(wordPattern("abba", "dog ct cat dog"));
+    </script>
+</body>
+
+</html>

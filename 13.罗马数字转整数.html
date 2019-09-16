@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var romanToInt = function (s) {
+            var a = 0;
+            var obj = {
+                I: 1,
+                V: 5,
+                X: 10,
+                L: 50,
+                C: 100,
+                D: 500,
+                M: 1000
+            }
+            for (var i = 0; i < s.length; i++) {
+                if (i == s.length - 1) {
+                    a = a + obj[s[s.length - 1]];
+                    break;
+                }
+                if (obj[s[i]] < obj[s[i + 1]]) {
+                    a += obj[s[i + 1]] - obj[s[i]];
+                    i++;
+                } else {
+                    a += obj[s[i]];
+                }
+            }
+            return a;
+        };
+        alert(romanToInt("I"));
+    </script>
+</body>
+
+</html>

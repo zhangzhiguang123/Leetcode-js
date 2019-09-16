@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var findComplement = function(num) {
+          let now = num.toString(2);
+          let after ='';
+          for(let i of now){
+              i==="0"?after+="1":after+="0";
+          }
+          return parseInt(after,2);
+      };
+      alert(findComplement(5));
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    function sortNumber(a,b)  //让sort方法以数值大小排序
+        {
+        return a - b;
+        }
+    let arrNum = nums.sort(sortNumber);
+    for(let i = 0;i<arrNum.length;i++){
+        if(arrNum[i]===arrNum[i+1]){
+            arrNum.splice(i+1,1);
+            i--;        //删除数组元素之后，将下标前移一位，即继续比较下标为i的元素与其后的元素；
+        }
+    }
+    return arrNum.length;
+};
+
+alert(removeDuplicates([5,3,2,5,5,5,9,10,11,12]));
+    </script>
+</body>
+</html>

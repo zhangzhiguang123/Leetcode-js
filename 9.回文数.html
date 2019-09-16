@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var isPalindrome = function (x) {
+            if (x < 0) {
+               return false;
+            }
+            let xStr = x.toString();
+            let xArr = xStr.split("");
+            let xArr0=xStr.split("");
+            let xArr1= xArr.reverse();
+            if(xArr0.toString()===xArr1.toString()){
+                  return true;
+            }
+            return false;
+        }; 
+        alert(isPalindrome(-0)); 
+    </script>
+</body>
+
+</html>
