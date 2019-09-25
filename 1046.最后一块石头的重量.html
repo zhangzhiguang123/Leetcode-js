@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var lastStoneWeight = function(stones) {
+       if(stones.length ===1) return stones[0];
+       function sortn(a,b){
+           return b-a;
+       }
+       stones.sort(sortn);   //从大到小排序
+       
+       while(stones.length>1){
+           let t = stones[0] -stones[1]; //判断差值
+           if(t===0){
+               stones.shift();
+               stones.shift(); //删头部俩元素
+           }else{
+               stones[1] = t;
+               stones.shift(); //把差值赋给第二个元素，并删第一个
+           }
+           stones.sort(sortn);
+       }
+       if(stones.length===0) return 0;
+       return stones[0];
+   };
+   console.log(lastStoneWeight([7,4,1,8,12,1,423,54,32,5,56,58,67,8,679,1]));
+    </script>
+</body>
+</html>
