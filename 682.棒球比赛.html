@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var calPoints = function (ops) {
+            let stack = [];
+            let num = 0;
+            for (let j of ops) {
+                if (j !== "+" && j !== "D" && j !== "C") {
+                    j = parseFloat(j);
+                    stack.push(j);
+                } else {
+                    switch (j) {
+                        case "+":
+                            stack.push(stack[stack.length - 1] + stack[stack.length - 2]);
+                            break;
+                        case "D":
+                            stack.push(2 * stack[stack.length - 1]);
+                            break;
+                        case "C":
+                            stack.pop();
+                    }
+                }
+            }
+            return stack.reduce((num, i) => num + i);  //对栈求和
+        };
+        console.log(calPoints(["5", "2", "C", "D", "+"]));
+    </script>
+</body>
+
+</html>
