@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           var distanceBetweenBusStops = function(distance, start, destination) {
+            if(start>destination){
+                [start,destination] = [destination,start];
+            } //如果开始站的位置大于结束站的位置下标，为了方便计算，交换两站下标。
+            let arr0 = distance.slice(start,destination);  //剪切两站间的每站距离数组
+            let disOne = arr0.reduce((a,b)=>a+b); //计算两点间的距离；
+            let disTwo = distance.reduce((a,b)=>a+b)-disOne;//总距离减去disOne等于向反方向行驶的距离
+            return Math.min(disOne,disTwo);//取两距离最小
+    }; 
+     console.log(distanceBetweenBusStops([7,2,3,4],0,1));
+    </script>
+</body>
+</html>
