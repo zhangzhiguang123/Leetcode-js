@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var numPrimeArrangements = function (n) {
+            if (n === 1 || n === 2) return 1;
+            let p = 1; //质数计数器
+            let result = 1;
+            for (let i = 3; i <= n; i++) {   //判断是不是质数
+                let flag = 1;
+                for (let j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j === 0) {
+                        flag = 0;
+                    }
+                }
+                if (flag) {
+                    p++;
+                }
+            }
+            for (let i = 1; i <= p; i++) {  //判断一共有多少种组合，质数位正好等于质数个数，转换成排列组合问题。即求阶乘
+                result *= i;
+                result = result%(10**9+7);
+            }
+            for(let i=1;i<=n-p;i++){  //求非质数一共有多少种组合，也是阶乘问题，拿result乘结果即可。
+                result*=i;
+                result = result%(10**9+7);
+            }
+            return result;
+        };
+        console.log(numPrimeArrangements(10));
+    </script>
+</body>
+
+</html>
