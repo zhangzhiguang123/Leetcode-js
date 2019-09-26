@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * @param {string[]} transactions
+ * @return {string[]}
+ */
+        var invalidTransactions = function (transactions) {
+            let invalid = new Set();
+            transactions.forEach((element, index) => { //将transactions转成便于比较的二维数组
+                transactions[index] = element.split(",");
+            });
+            for (let i = 0; i < transactions.length; i++) { //两层遍历取符和结果的值
+                if (transactions[i][2] > 1000) {
+                    invalid.add(transactions[i].join(","));
+                }
+                    for (let j = i + 1; j < transactions.length; j++) {
+                        if (transactions[j][0] === transactions[i][0]
+                            && Math.abs(transactions[i][1] - transactions[j][1]) <= 60
+                            && transactions[i][3] != transactions[j][3]) {
+                            invalid.add(transactions[i].join(","));
+                            invalid.add(transactions[j].join(","));
+                        }
+                }
+            }
+            return [...invalid];
+        };
+        console.log(invalidTransactions(["bob,689,1910,barcelona","alex,696,122,bangkok","bob,832,1726,barcelona","bob,820,596,bangkok","chalicefy,217,669,barcelona","bob,175,221,amsterdam"]));
+    </script>
+</body>
+
+</html>
