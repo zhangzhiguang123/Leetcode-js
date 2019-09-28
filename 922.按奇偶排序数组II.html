@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var sortArrayByParityII = function(A) {
+        let odd = [];//奇数
+        let even = [];///偶数
+        let target = [];//存结果
+        A.forEach(element => {
+            if(element%2===0) even.push(element);
+            else odd.push(element);
+        });
+        for(let i=0;i<odd.length;i++){
+            target.push(even[i]);
+            target.push(odd[i]);
+        }
+        return target;
+    };
+    </script>
+</body>
+</html>
