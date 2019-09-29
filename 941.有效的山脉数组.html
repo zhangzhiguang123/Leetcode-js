@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var validMountainArray = function(A) {
+           if(A.length<3) return false; //A的长度小于3时，直接返回false
+           let max = Math.max(...A); //找出最大元素
+           let maxArr=[];
+           A.map((element,index) => {  //将所有最大元素的下标保存在数组maxArr中
+                if(element===max) maxArr.push(index);
+           });
+           if(maxArr.length!==1) return false;
+           if(maxArr[0]===A.length-1||maxArr[0]===0) return false;
+           
+           let leftArr = [];
+           let rightArr = [];
+           let t;
+           for(let i=0;i<A.length;i++){  //目标元素的左边元素放入leftArr中
+               if(i===maxArr[0]){
+                    t = i;
+                    break;
+               }
+               leftArr.push(A[i]);
+           }
+           for(let i=t+1;i<A.length;i++){ //右边放入rightArr中
+               rightArr.push(A[i]);
+           }
+           
+           if(rightArr.length===0||leftArr.length===0) return false;//左右如果有个没值，返回false
+           let [leftFlag,rightFlag]=[true,true];
+           for(let i=0;i<leftArr.length-1;i++){  //判断左边是否为递增
+               if(leftArr[i+1]<=leftArr[i]){
+                   leftFlag = false;
+                   break;
+               }
+           }
+
+           for(let i=0;i<rightArr.length-1;i++){ //判断右边是否为递减
+              if(rightArr[i+1]>=rightArr[i]){
+                  rightFlag = false;
+                  break;
+              }
+           }
+
+           return leftFlag&&rightFlag;
+   };
+    console.log(validMountainArray([2,33,,4,8,9,10,11,12]));
+    </script>
+</body>
+</html>
